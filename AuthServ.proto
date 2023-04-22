@@ -9,10 +9,16 @@ message RegistrationVerificationInput{
 message AuthInput{
     string jwtToken = 1;
 }
+
+message PasswordAuthInput{
+	string email = 1;
+	string password = 1;
+}
 message RegistrationResult{
     string answer = 1;
     bool isOk = 2;
 }
+
 message RegistrationVerificationResult{
     string token = 1;
     bool isOk = 2;
@@ -21,8 +27,13 @@ message AuthResult{
     int64 userId = 1;
     string nextToken = 2;
 }
+message PasswordAuthResult{
+	string jwtToken = 1;
+	string responceMessage = 2;
+}
 service AuthAndRegistService{
     rpc TryRegistr(RegistrationInput) returns (RegistrationResult);
     rpc TryVerifRegistr(RegistrationVerificationInput) returns (RegistrationVerificationResult);
     rpc Authenticate(AuthInput) returns (AuthResult);
+    rpc AuthFromPassword(PasswordAuthInput) returns (PasswordAuthResult);
 }
