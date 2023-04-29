@@ -1,6 +1,5 @@
 syntax = "proto3"
 package = CAS;
->>>>>>> 91babf5 (Add package name)
 service AuthAndRegistService{
     rpc TryRegistr(RegistrationInput) returns (RegistrationResult);
     rpc TryVerifRegistr(RegistrationVerificationInput) returns (RegistrationVerificationResult);
