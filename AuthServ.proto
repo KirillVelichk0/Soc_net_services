@@ -5,6 +5,13 @@ service AuthAndRegistService{
     rpc TryVerifRegistr(RegistrationVerificationInput) returns (RegistrationVerificationResult);
     rpc Authenticate(AuthInput) returns (AuthResult);
     rpc AuthFromPassword(PasswordAuthInput) returns (PasswordAuthResult);
+    rpc GetIdFromEmail()
+}
+message GetIdFromEmailRequest{
+	string email = 1;
+}
+message GetIdFromEmailResponse{
+	string id = 1;
 }
 message RegistrationInput{
     string email = 1;
